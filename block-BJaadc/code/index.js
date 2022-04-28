@@ -35,10 +35,13 @@ console.log(message.slice(3,6) == 'you');
 // Check and log whether the word from index 7 to 8 is "a" or not
 console.log(message.slice(7,8) == 'a');
 // Check and log whether the last 3 character in message is "no!" or not (you can use -3 in slice)
-console.log(message.slice((message.length-3),(message.length)) == 'no!');
+// console.log(message.slice((message.length-3),(message.length)) == 'no!');
+console.log(message.slice(-3)=== 'no!');
 
 // Check and log whether the last 5 character in message is "no!" or not
-console.log(message.slice(message.length-5) == 'no!');
+// console.log(message.slice(message.length-5) == 'no!');
+console.log(message.slice(-5)=== 'no!');
+
 
 // Log the message variable, all in lowecase
 console.log(message.toLowerCase());
@@ -62,4 +65,7 @@ for (let i of message) {
 // Split all the words in message (split by " " space) and store it in a variable messageArray
 let messageArray=message.split(' ');
 // Log all the words of messageArray
-console.log(messageArray);
+// console.log(messageArray);
+for(let i of messageArray){
+    console.log(i);
+}
