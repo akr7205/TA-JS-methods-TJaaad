@@ -25,19 +25,21 @@ fruits[1]='Pears';
 // Add the 'Kiwi' and 'Lemon' to the index 1 and 2 and shift the other element to next index (use splice to add element)
 fruits.splice(1,0,'Kiwi','Lemon');
 // Remove (slice) all the element from index 5
-fruits.slice(5,2);
+fruits.slice(5 );
 // Create another array named moreFruits with values ['Berries', 'Melons']
 let moreFruits=['Berries','Melons'];
 
 // Concat moreFruits into fruits array (re-assign so the value gets updated)
 fruits=fruits.concat(moreFruits);
 // Log the name of all fruit in console
-// fruits.forEach(element =>console.log(element));
+fruits.forEach(element =>console.log(element));
 // Convert each fruit name to lowercase and log it
-// fruits.forEach(element=>console.log( element.toLowerCase()));
+fruits.forEach(element=>console.log( element.toLowerCase()));
 // Convert all fruits name into lowercase and store in new array named lowercaseFruits
-let lowercaseFruits=[];
+// let lowercaseFruits=[];
 // fruits.forEach(element=>lowercaseFruits.push( element.toLowerCase()));
+//  method-2
+let lowercaseFruits=fruits.map(fruit => fruit.toLowerCase());
 // Convert all fruits name into uppercase and store in new array named uppercaseFruits
 let uppercaseFruits=[];
  fruits.forEach(element=>uppercaseFruits.push( element.toUpperCase()));
@@ -72,22 +74,22 @@ let tripleNumbers=numbersThree.map(x=>x*3);
 // Create a new variable named halfNumbers that store the numberThree array (each element should be divided by 2). Use map
 let halfNumbers=numbersThree.map(x=>x/2);
 // Create a new variable named oddNumbers that store all the odd numbers in numbersThree array
-let oddNumbers=[];
-numbersThree.forEach(x=>{
-    if(x%2!=0){
-        oddNumbers.push(x);
-    }
-});
+// let oddNumbers=[];
+// numbersThree.forEach(x=>{
+//     if(x%2!=0){
+//         oddNumbers.push(x);
+//     }
+// });
+
+let oddNumbers=numbersThree.filter(element => element %2 !== 0);
 
 // Create a new variable named evenNumbers that store all the even numbers in numbersThree array
-let evenNumbers=[];
-numbersThree.forEach(x=>{
-    if(x%2 == 0){
-        evenNumbers.push(x);
-    }
-});
+let evenNumbers=numbersThree.filter(element => element %2 === 0);
+
+
 // Find the index of 10 in numbersThree array
-console.log(numbersThree.indexOf(10));
+// console.log(numbersThree.indexOf(10));
+console.log(numbersThree.find(num => num === 10));
 // Reverse the values of numbersThree array
 console.log(numbersThree.reverse());
 // Reverse the values of numbersTwo array
