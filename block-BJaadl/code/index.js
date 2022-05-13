@@ -15,10 +15,7 @@ let findLongestWord=[...words].sort((a,b) =>{
 });
 console.log(findLongestWord[0]);
 // - Convert the above array "words" into an array of length of word instead of word.
-let lengthWords=[];
-for(let word of words){
-  lengthWords.push(word.length);
-}
+let lengthWords=words.map(word => word.length);
 // - Create a new array that only contains word with atleast one vowel.
 let vowelarr=[];
 let vowels=['a','e','i','o','u'];
@@ -32,6 +29,7 @@ for(let word of words){
 };
 // - Find the index of the word "rhythm"
 console.log(words.indexOf('rhythm'));
+console.log(words.findIndex((w) => w === 'rhythm' ));
 // - Create a new array that contians words not starting with vowel.
 let notVowel=[];
 for(let word of words){
@@ -50,12 +48,11 @@ for(let word of words){
 let numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 // - Create a sumArray function that takes an array of number as a parameter, and calculate the sum of all its numbers
-let sum=0;
+
 function sumArray(numbers){
-  for(let num of numbers){
-    sum+=num;
-  }
-  return sum;
+  return numbers.reduce((sum,num) =>{
+    return sum+=num;
+  },0);
 }
 console.log(sumArray(numbers));
 
