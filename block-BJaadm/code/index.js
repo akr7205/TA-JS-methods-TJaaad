@@ -21,17 +21,20 @@ let peopleGrade=persons.map(person => person.grade)
 let peopleSex=persons.map(person => `${person.name} ${person.sex}`)
 
 // Log the filtered named of people in peopleName that starts with 'J' or 'P'
-for(let person of persons){
-  if(person.name.startsWith('J') || person.name.startsWith('P')){
-    console.log(person.name);
-  }
-}
+// for(let person of persons){
+//   if(person.name.startsWith('J') || person.name.startsWith('P')){
+//     console.log(person.name);
+//   }
+// }
+console.log(peopelName.filter(name => name.startsWith('J')||name.startsWith('P') ));
 // Log the length of filtered named of people in peopleName that starts with 'A' and 'C'
-for(let person of persons){
-  if(person.name.startsWith('A') || person.name.startsWith('C')){
-    console.log(person.name.length);
-  }
-}
+// for(let person of persons){
+//   if(person.name.startsWith('A') || person.name.startsWith('C')){
+//     console.log(person.name.length);
+//   }
+// }
+console.log(peopelName.filter(name => name.startsWith('A')||name.startsWith('C') ).length );
+
 // Log all the filtered male ('M') in persons array
 persons.filter(person => {
   if(person.sex == 'M'){
@@ -57,43 +60,24 @@ persons.map(person =>{
   }
 })
 // Find the first name that starts with 'J' in persons array and log the object
-persons.map(person =>{
-  if(person.name.startsWith('J')){
-    console.log(person);
-  }
-})
+console.log( persons.find(person => person.name.startsWith('J')) );
 // Find the first name that starts with 'P' in persons array and log the object
-persons.map(person =>{
-  if(person.name.startsWith('P')){
-    console.log(person);
-  }
-})
+console.log( persons.find(person => person.name.startsWith('P')) );
+
 // Find the first name that starts with 'J', grade is greater than 10 and is a female
-persons.map(person =>{
-  if(person.name.startsWith('J') && person.grade>10 && person.sex == 'F'  ){
-    console.log(person);
-  }
-})
+console.log(persons.find(person =>
+  person.name.startsWith('J') && person.grade>10 && person.sex == 'F'  ))
+    
 // Filter all the female from persons array and store in femalePersons array
-let femalePersons=[];
-persons.map(person =>{
-  if(person.sex=='F'){
-    femalePersons.push(person);
-  }
-})
+let femalePersons=persons.filter(person => person.sex === 'F');
 // Filter all the male from persons array and store in malePersons array
-let malePersons= [];
-persons.map(person =>{
-  if(person.sex=='M'){
-    malePersons.push(person);
-  }
-})
+let malePersons= persons.filter(person => person.sex === 'M');
 // Find the sum of all grades and store in gradeTotal
 let gradeTotal= persons.reduce((sum,person) => {
   return sum+person.grade;
 },0);
 // Find the average grade
-let averageGrade= gradeTotal/persons.length;
+let averageGrade= gradeTotal/peopleGrade.length;
 // Find the average grade of male
 let GradeMaleTotal=malePersons.reduce((average,person) => {
  return average+person.grade;
