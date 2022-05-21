@@ -84,15 +84,11 @@ return surnamesA;
 
 function peopleNameOfAllHouses() {
   // your code goes here
-  let PeopleNameOfAllHouses={};
-  got.houses.map(house => {
-   house.people.map(
-    element => {
-      PeopleNameOfAllHouses[house.name] = [element.name];
-    }
-   );
+  let final={};
+  got.houses.forEach((house) =>{
+  final[house.name]=house.people.map(person => person.name);
   });
-  return PeopleNameOfAllHouses;
+  return final;
 }
 
 // Testing your result after writing your function
