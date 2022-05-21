@@ -2,34 +2,85 @@
 
 function countAllPeople() {
   // your code goes here
+ let totalpeople= got.houses.reduce((totalpeople,house)=>{
+    return totalpeople+=house.people.length;
+  },0)
+  return totalpeople;
 }
 
 function peopleByHouses() {
   // your code goes here
+  return got.houses.reduce((acc,house) =>{
+    acc[house.name]=house.people.length;
+    return acc;
+  },{})
+  
 }
 
 function everyone() {
-  // your code goes here
+  // your code goes 
+  return got.houses.reduce((acc,house)=>{
+    house.people.forEach(person=>{
+      acc.push(person.name);
+    });
+    return acc;
+  },[]);
 }
 
 function nameWithS() {
   // your code goes here
+  return got.houses.reduce((acc,house)=>{
+   house.people.map(person=>{
+     if( person.name.toLowerCase().includes('s')){
+       acc.push(person.name);
+     }
+   })
+   return acc;
+  },[]);
+
 }
 
 function nameWithA() {
   // your code goes here
+  return got.houses.reduce((acc,house)=>{
+    house.people.map(person=>{
+      if( person.name.toLowerCase().includes('a')){
+        acc.push(person.name);
+      }
+    })
+    return acc;
+   },[]);
 }
 
 function surnameWithS() {
   // your code goes here
+   // your code goes here
+   let allPeople =everyone();
+    return allPeople.reduce((acc,personname)=>{
+      if(personname.split(" ")[1].toLowerCase().includes('s')){
+        acc.push(personname);
+      }
+      return acc;
+    },[]);
 }
 
 function surnameWithA() {
   // your code goes here
+  let allPeople =everyone();
+    return allPeople.reduce((acc,personname)=>{
+      if(personname.split(" ")[1].includes('A')){
+        acc.push(personname);
+      }
+      return acc;
+    },[]);
 }
 
 function peopleNameOfAllHouses() {
   // your code goes here
+  return got.houses.reduce((acc,house) =>{
+   acc[house.name]=house.people.map(person => person.name);
+   return acc;
+  },{});
 }
 
 // Testing your result after writing your function
