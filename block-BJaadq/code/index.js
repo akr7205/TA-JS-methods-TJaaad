@@ -2,34 +2,97 @@
 
 function countAllPeople() {
   // your code goes here
+  let totalPeople = 0;
+  got.houses.map(element => {
+    totalPeople += element.people.length;
+  });
+  return totalPeople;
 }
 
 function peopleByHouses() {
   // your code goes here
+  let peopleHouses = {};
+  got.houses.map(element => {
+    peopleHouses[element.name] = element.people.length;
+  });
+  return peopleHouses;
 }
 
 function everyone() {
   // your code goes here
+  let allname = [];
+  got.houses.forEach(element => {
+    element.people.forEach(element => {
+      allname.push(element.name);
+    });
+  })
+  return allname;
 }
 
 function nameWithS() {
   // your code goes here
+  let nameWithSs = [];
+  got.houses.forEach(element => {
+    element.people.forEach(element => {
+      if (element.name.includes('S') || element.name.includes('s')) {
+        nameWithSs.push(element.name);
+      }
+    });
+  })
+  return nameWithSs;
 }
 
 function nameWithA() {
   // your code goes here
+  let nameWithAa = [];
+  got.houses.forEach(element => {
+    element.people.forEach(element => {
+      if (element.name.includes('A') || element.name.includes('a')) {
+        nameWithAa.push(element.name);
+      }
+    });
+  })
+  return nameWithAa;
 }
+
 
 function surnameWithS() {
   // your code goes here
+ let surnames=[];
+ got.houses.forEach(element => {
+  element.people.forEach(element => {
+    if (element.name.startsWith('S')) {
+      surnames.push(element.name);
+    }
+  });
+})
+return surnames;
 }
 
 function surnameWithA() {
   // your code goes here
+  let surnamesA=[];
+ got.houses.forEach(element => {
+  element.people.forEach(element => {
+    if (element.name.startsWith('A')) {
+      surnamesA.push(element.name);
+    }
+  });
+})
+return surnamesA;
 }
 
 function peopleNameOfAllHouses() {
   // your code goes here
+  let PeopleNameOfAllHouses={};
+  got.houses.map(house => {
+   house.people.map(
+    element => {
+      PeopleNameOfAllHouses[house.name] = [element.name];
+    }
+   );
+  });
+  return PeopleNameOfAllHouses;
 }
 
 // Testing your result after writing your function
