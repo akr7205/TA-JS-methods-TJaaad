@@ -34,7 +34,7 @@ function nameWithS() {
   let nameWithSs = [];
   got.houses.forEach(element => {
     element.people.forEach(element => {
-      if (element.name.includes('S') || element.name.includes('s')) {
+      if (element.name.split(' ')[1].tolowercase().includes('s')) {
         nameWithSs.push(element.name);
       }
     });
